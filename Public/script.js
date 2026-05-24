@@ -279,7 +279,7 @@ async function loadAudioFile(file) {
     const arrayBuffer = await file.arrayBuffer();
     // Create or resume AudioContext
     if (!state.audioContext) {
-      state.audioContext = new (window.AudioContext || window.webkitAudioContext)({ latencyHint: 'interactive' });
+      state.audioContext = new (window.AudioContext || window.webkitAudioContext)({ latencyHint: 'playback' });
     }
     if (state.audioContext.state === 'suspended') {
       await state.audioContext.resume();
